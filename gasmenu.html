@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PANUWAT PETROLEUM</title>
+    <style>
+        body {
+            background-color: #EAD927;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .header img {
+            width: 20px;
+            cursor: pointer;
+        }
+
+        .header h3 {
+            margin: 0;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: center;
+            color: black;
+        }
+
+        .branch-card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 5px;
+            margin: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .branch-card img {
+            width: 60px;
+            height: 60px;
+            margin-right: 10px;
+            border-radius: 10px;
+        }
+
+        .branch-info {
+            flex-grow: 1;
+        }
+
+        .branch-info h5 {
+            margin: 0;
+            font-size: 14px;
+            color: black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .branch-info p {
+            margin: 2px 0;
+            color: gray;
+            font-size: 14px;
+        }
+
+        .branch-info p.time {
+            color: #05932D;
+        }
+
+        .branch-distance {
+            color: gray;
+            font-size: 14px;
+        }
+
+        .map-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-container input {
+            width: 75%;
+            padding: 10px 10px 10px 50px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            color: #888;
+            background-color: #fff;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            left: 35px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-menu {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .footer-menu button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-menu button img {
+            width: 40px;
+        }
+
+        .footer-menu button span {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .footer-menu button.active span {
+            color: #888; /* สีเทาสำหรับปุ่ม Home */
+        }
+
+        .footer-menu button span.yellow {
+            color: #fdd835; /* สีเหลืองสำหรับปุ่ม สาขาทั้งหมด */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="image/back.png" alt="Back">
+        <h3>PANUWAT PETROLEUM</h3>
+        <img src="image/close.png" alt="Close">
+    </div>
+
+    <div class="branch-card">
+        <img src="image/logo.jpg" alt="Logo">
+        <div class="branch-info">
+            <h5>ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขาสำนักงานใหญ่</h5>
+            <p>สถานีบริการน้ำมันเชื้อเพลิง</p>
+            <p class="time">เปิด 06.00-21.00 น.</p>
+        </div>
+        <div class="branch-distance" id="distance1">กำลังคำนวณระยะทาง...</div>
+    </div>
+
+    <div class="branch-card">
+        <img src="image/logo.jpg" alt="Logo">
+        <div class="branch-info">
+            <h5>ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขา1</h5>
+            <p>สถานีบริการน้ำมันเชื้อเพลิง</p>
+            <p class="time">เปิด 06.00-21.00 น.</p>
+        </div>
+        <div class="branch-distance" id="distance2">กำลังคำนวณระยะทาง...</div>
+    </div>
+
+    <div class="map-footer">
+        <div class="search-container">
+            <input type="text" placeholder="ค้นหาสาขา">
+            <img src="image/search.png" alt="Search" class="search-icon">
+        </div>
+
+        <div class="footer-menu">
+            <button class="active">
+                <img src="image/homeB.png" alt="Home">
+                <span>Home</span>
+            </button>
+            <button>
+                <img src="image/street-signY.png" alt="สาขาทั้งหมด">
+                <span class="yellow">สาขาทั้งหมด</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Distance Calculation -->
+    <script>
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371;
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c;
+        }
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                const userLat = position.coords.latitude;
+                const userLon = position.coords.longitude;
+
+                console.log("User Latitude: " + userLat);
+                console.log("User Longitude: " + userLon);
+
+                const gasStation1 = { lat: 13.962116165223168, lon: 101.57781687871186 };
+                const gasStation2 = { lat: 13.914958493778913, lon: 101.59223060185236 };
+
+                const distanceToStation1 = calculateDistance(userLat, userLon, gasStation1.lat, gasStation1.lon);
+                const distanceToStation2 = calculateDistance(userLat, userLon, gasStation2.lat, gasStation2.lon);
+
+                document.getElementById('distance1').innerHTML = distanceToStation1.toFixed(2) + " กม.";
+                document.getElementById('distance2').innerHTML = distanceToStation2.toFixed(2) + " กม.";
+            }, function(error) {
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                        alert("คุณไม่ได้อนุญาตให้เข้าถึงตำแหน่ง");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        alert("ข้อมูลตำแหน่งไม่พร้อมใช้งาน");
+                        break;
+                    case error.TIMEOUT:
+                        alert("หมดเวลาการรอตำแหน่ง");
+                        break;
+                    default:
+                        alert("เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ");
+                        break;
+                }
+            }, {timeout: 15000}); // เพิ่ม timeout 15 วินาที
+        } else {
+            alert("เบราว์เซอร์ของคุณไม่รองรับการเข้าถึงตำแหน่ง");
+        }
+    </script>
+
+</body>
+</html>
