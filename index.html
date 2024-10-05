@@ -98,6 +98,7 @@
             transform: translateY(-50%);
             width: 20px;
             height: 20px;
+            cursor: pointer; /* เพิ่มให้คลิกได้ */
         }
 
         .footer-menu {
@@ -158,7 +159,6 @@
     <div class="map-header">
         <img src="image/back.png" alt="Back" class="back-button">
         <h3>PANUWAT PETROLEUM</h3>
-        <img src="image/close.png" alt="Close" class="close-button"> <!-- Close button -->
     </div>
 
     <!-- แผนที่ OpenStreetMap -->
@@ -167,8 +167,8 @@
     <!-- ส่วน Footer -->
     <div class="map-footer">
         <div class="search-container">
-            <input type="text" placeholder="ค้นหาสาขา">
-            <img src="image/search.png" alt="ค้นหา" class="search-icon">
+            <input type="text" id="searchInput" placeholder="ค้นหาสาขา">
+            <img src="image/search.png" alt="ค้นหา" class="search-icon" onclick="searchBranch()">
         </div>
 
         <!-- เมนู Footer -->
@@ -211,6 +211,18 @@
                 .bindPopup(marker.title)
                 .openPopup();
         });
+
+        // ฟังก์ชันสำหรับค้นหาและนำไปที่หน้า detail.html หรือ detail1.html
+        function searchBranch() {
+            var input = document.getElementById('searchInput').value;
+            if (input === 'ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขาสำนักงานใหญ่') {
+                window.location.href = 'detail.html';
+            } else if (input === 'ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขา1') {
+                window.location.href = 'detail1.html';
+            } else {
+                alert('ไม่พบข้อมูล');
+            }
+        }
     </script>
 </body>
 </html>
