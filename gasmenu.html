@@ -43,7 +43,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer; /* เพิ่มเพื่อให้ cursor เปลี่ยนเป็นมือเมื่อ hover */
+            cursor: pointer;
         }
 
         .branch-card img {
@@ -168,15 +168,18 @@
         <img src="image/close.png" alt="Close">
     </div>
 
-    <div class="branch-card" onclick="window.location.href='detail.html'"> <!-- เพิ่ม onclick -->
-        <img src="image/logo.jpg" alt="Logo">
-        <div class="branch-info">
-            <h5>ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขาสำนักงานใหญ่</h5>
-            <p>สถานีบริการน้ำมันเชื้อเพลิง</p>
-            <p class="time">เปิด 06.00-21.00 น.</p>
+    <!-- กล่องแรกที่ใช้ <a> ครอบแทน -->
+    <a href="detail.html" style="text-decoration: none; color: inherit;">
+        <div class="branch-card"> 
+            <img src="image/logo.jpg" alt="Logo">
+            <div class="branch-info">
+                <h5>ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขาสำนักงานใหญ่</h5>
+                <p>สถานีบริการน้ำมันเชื้อเพลิง</p>
+                <p class="time">เปิด 06.00-21.00 น.</p>
+            </div>
+            <div class="branch-distance" id="distance1">กำลังคำนวณระยะทาง...</div>
         </div>
-        <div class="branch-distance" id="distance1">กำลังคำนวณระยะทาง...</div>
-    </div>
+    </a>
 
     <div class="branch-card">
         <img src="image/logo.jpg" alt="Logo">
@@ -224,9 +227,6 @@
                 const userLat = position.coords.latitude;
                 const userLon = position.coords.longitude;
 
-                console.log("User Latitude: " + userLat);
-                console.log("User Longitude: " + userLon);
-
                 const gasStation1 = { lat: 13.962116165223168, lon: 101.57781687871186 };
                 const gasStation2 = { lat: 13.914958493778913, lon: 101.59223060185236 };
 
@@ -250,7 +250,7 @@
                         alert("เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ");
                         break;
                 }
-            }, {timeout: 15000}); // เพิ่ม timeout 15 วินาที
+            }, {timeout: 15000});
         } else {
             alert("เบราว์เซอร์ของคุณไม่รองรับการเข้าถึงตำแหน่ง");
         }
