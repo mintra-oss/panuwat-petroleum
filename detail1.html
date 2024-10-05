@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PANUWAT PETROLEUM</title>
+    <style>
+        body {
+            background-color: #EAD927;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        .header img {
+            width: 20px;
+            cursor: pointer;
+        }
+
+        .header h3 {
+            margin: 0;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: center;
+            color: black;
+        }
+
+        .branch-details {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 20px 0 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .branch-logo {
+            width: 80px;
+            height: 80px;
+            float: left;
+            margin-right: 15px;
+            border-radius: 15px; /* Rounded square */
+        }
+
+        .branch-info {
+            color: black;
+        }
+
+        .branch-info h5 {
+            margin: 0;
+            font-size: 18px; /* Reduced font size */
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .branch-info p {
+            margin: 5px 0;
+            color: #666666;
+            font-size: 16px;
+        }
+
+        .branch-info p.time {
+            color: #05932D;
+            font-size: 16px;
+        }
+
+        .contact {
+            font-size: 16px;
+            color: #333333;
+        }
+
+        .contact p.contact-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .service-info, .location-info {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .service-section {
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .service-section p.section-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .btn-direction {
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #F9DC61;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .btn-direction:hover {
+            background-color: #f1d050;
+        }
+
+        .map-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 20px 20px 0 0;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-container input {
+            width: 75%;
+            padding: 10px 10px 10px 50px;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            color: #888;
+            background-color: #fff;
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            left: 35px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-menu {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .footer-menu button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-menu button img {
+            width: 40px;
+        }
+
+        .footer-menu button span {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        .footer-menu button.active span {
+            color: #888;
+        }
+
+        .footer-menu button span.yellow {
+            color: #fdd835;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="image/back.png" alt="Back">
+        <h3>PANUWAT PETROLEUM</h3>
+        <img src="image/close.png" alt="Close">
+    </div>
+
+    <div class="branch-details">
+        <img src="image/logo.jpg" alt="Logo" class="branch-logo">
+        <div class="branch-info">
+            <h5>ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขา1</h5>
+            <p class="time">เปิด 06.00 - 21.00 น.</p>
+            <div class="service-section">
+                <p class="section-label">ที่ตั้ง</p>
+                <p class="location-info">353 ม.4 ต.ท่าตูม อ.ศรีมหาโพธิ จ.ปราจีนบุรี 25140</p>
+            </div>
+            <div class="service-section">
+                <p class="section-label">บริการ</p>
+                <p class="service-info">สถานีบริการน้ำมันเชื้อเพลิง</p>
+            </div>
+        <div class="contact">
+            <p class="contact-label">ติดต่อ</p>
+            <p>082-287-3999</p>
+        </div>
+    </div>
+        </div>
+
+    <button class="btn-direction">นำทางไปยังจุดหมาย</button>
+
+    <div class="map-footer">
+        <div class="search-container">
+            <input type="text" placeholder="ค้นหาสาขา">
+            <img src="image/search.png" alt="Search" class="search-icon">
+        </div>
+
+        <div class="footer-menu">
+            <button class="active">
+                <img src="image/homeB.png" alt="Home">
+                <span>Home</span>
+            </button>
+            <button>
+                <img src="image/street-signY.png" alt="สาขาทั้งหมด">
+                <span class="yellow">สาขาทั้งหมด</span>
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
