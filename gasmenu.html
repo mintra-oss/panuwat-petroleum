@@ -44,6 +44,7 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
+            position: relative; /* เพื่อให้สามารถใช้ตำแหน่ง relative */
         }
 
         .branch-card img {
@@ -79,6 +80,13 @@
         .branch-distance {
             color: gray;
             font-size: 12px;
+            position: absolute; /* จัดให้เลขที่บอกระยะทางอยู่ในมุมขวาล่าง */
+            bottom: 10px; /* ห่างจากด้านล่าง 10px */
+            right: 10px; /* ห่างจากด้านขวา 10px */
+            background-color: white; /* กำหนดพื้นหลังเป็นสีขาว */
+            padding: 5px; /* ขอบเขต padding */
+            border-radius: 5px; /* ทำให้มุมมน */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* เงา */
         }
 
         .map-footer {
@@ -122,7 +130,6 @@
             transform: translateY(-50%);
             width: 20px;
             height: 20px;
-            cursor: pointer;
         }
 
         .footer-menu {
@@ -177,7 +184,7 @@
                 <p>สถานีบริการน้ำมันเชื้อเพลิง</p>
                 <p class="time">เปิด 06.00-21.00 น.</p>
             </div>
-            <div class="branch-distance" id="distance1">Loading</div>
+            <div class="branch-distance" id="distance1">153.21 กม.</div>
         </div>
     </a>
 
