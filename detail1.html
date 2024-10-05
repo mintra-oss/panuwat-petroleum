@@ -159,6 +159,7 @@
             transform: translateY(-50%);
             width: 20px;
             height: 20px;
+            cursor: pointer; /* เพิ่มให้คลิกได้ */
         }
 
         .footer-menu {
@@ -200,9 +201,8 @@
 <body>
 
     <div class="header">
-        <img src="image/back.png" alt="Back">
+        <img src="image/back.png" alt="Back" onclick="window.location.href='gasmenu.html';">
         <h3>PANUWAT PETROLEUM</h3>
-        <img src="image/close.png" alt="Close">
     </div>
 
     <div class="branch-details">
@@ -229,12 +229,12 @@
 
     <div class="map-footer">
         <div class="search-container">
-            <input type="text" placeholder="ค้นหาสาขา">
-            <img src="image/search.png" alt="Search" class="search-icon">
+            <input type="text" id="searchInput" placeholder="ค้นหาสาขา">
+            <img src="image/search.png" alt="Search" class="search-icon" onclick="searchBranch()">
         </div>
 
         <div class="footer-menu">
-            <button class="active">
+            <button class="active" onclick="window.location.href='index.html';">
                 <img src="image/homeB.png" alt="Home">
                 <span>Home</span>
             </button>
@@ -244,6 +244,20 @@
             </button>
         </div>
     </div>
+
+    <!-- JavaScript สำหรับการค้นหาสาขา -->
+    <script>
+        function searchBranch() {
+            var input = document.getElementById('searchInput').value;
+            if (input === 'ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขาสำนักงานใหญ่') {
+                window.location.href = 'detail.html';
+            } else if (input === 'ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขา1') {
+                window.location.href = 'detail1.html';
+            } else {
+                alert('ไม่พบข้อมูล');
+            }
+        }
+    </script>
 
 </body>
 </html>
