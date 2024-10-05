@@ -34,50 +34,88 @@
             color: black;
         }
 
-        .branch-card {
-            background-color: #fff;
-            border-radius: 10px;
-            padding: 5px;
-            margin: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .branch-details {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 20px 0 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .branch-card img {
-            width: 60px;
-            height: 60px;
-            margin-right: 10px;
-            border-radius: 10px;
+        .branch-logo {
+            width: 80px;
+            height: 80px;
+            float: left;
+            margin-right: 15px;
+            border-radius: 15px;
         }
 
         .branch-info {
-            flex-grow: 1;
+            color: black;
         }
 
         .branch-info h5 {
             margin: 0;
-            font-size: 14px;
-            color: black;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
         }
 
         .branch-info p {
-            margin: 2px 0;
-            color: gray;
-            font-size: 14px;
+            margin: 5px 0;
+            color: #666666;
+            font-size: 16px;
         }
 
         .branch-info p.time {
             color: #05932D;
+            font-size: 16px;
         }
 
-        .branch-distance {
-            color: gray;
-            font-size: 14px;
+        .contact {
+            font-size: 16px;
+            color: #333333;
+        }
+
+        .contact p.contact-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .service-info, .location-info {
+            color: #666;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+
+        .service-section {
+            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+
+        .service-section p.section-label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .btn-direction {
+            display: block;
+            text-align: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #F9DC61;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .btn-direction:hover {
+            background-color: #f1d050;
         }
 
         .map-footer {
@@ -121,6 +159,7 @@
             transform: translateY(-50%);
             width: 20px;
             height: 20px;
+            cursor: pointer;
         }
 
         .footer-menu {
@@ -150,11 +189,11 @@
         }
 
         .footer-menu button.active span {
-            color: #888; /* สีเทาสำหรับปุ่ม Home */
+            color: #888;
         }
 
         .footer-menu button span.yellow {
-            color: #fdd835; /* สีเหลืองสำหรับปุ่ม สาขาทั้งหมด */
+            color: #fdd835;
         }
 
     </style>
@@ -162,39 +201,40 @@
 <body>
 
     <div class="header">
-        <img src="image/back.png" alt="Back">
+        <img src="image/back.png" alt="Back" onclick="window.location.href='gasmenu.html';">
         <h3>PANUWAT PETROLEUM</h3>
-        <img src="image/close.png" alt="Close">
     </div>
 
-    <div class="branch-card">
-        <img src="image/logo.jpg" alt="Logo">
+    <div class="branch-details">
+        <img src="image/logo.jpg" alt="Logo" class="branch-logo">
         <div class="branch-info">
             <h5>ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขาสำนักงานใหญ่</h5>
-            <p>สถานีบริการน้ำมันเชื้อเพลิง</p>
-            <p class="time">เปิด 06.00-21.00 น.</p>
+            <p class="time">เปิด 06.00 - 21.00 น.</p>
+            <div class="service-section">
+                <p class="section-label">ที่ตั้ง</p>
+                <p class="location-info">141.ม.3 ต.ท่าตูม อ.ศรีมหาโพธิ จ.ปราจีนบุรี 25140</p>
+            </div>
+            <div class="service-section">
+                <p class="section-label">บริการ</p>
+                <p class="service-info">สถานีบริการน้ำมันเชื้อเพลิง</p>
+            </div>
+        <div class="contact">
+            <p class="contact-label">ติดต่อ</p>
+            <p>092-626-9331</p>
         </div>
-        <div class="branch-distance" id="distance1">กำลังคำนวณระยะทาง...</div>
     </div>
+        </div>
 
-    <div class="branch-card">
-        <img src="image/logo.jpg" alt="Logo">
-        <div class="branch-info">
-            <h5>ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขา1</h5>
-            <p>สถานีบริการน้ำมันเชื้อเพลิง</p>
-            <p class="time">เปิด 06.00-21.00 น.</p>
-        </div>
-        <div class="branch-distance" id="distance2">กำลังคำนวณระยะทาง...</div>
-    </div>
+    <button class="btn-direction">นำทางไปยังจุดหมาย</button>
 
     <div class="map-footer">
         <div class="search-container">
-            <input type="text" placeholder="ค้นหาสาขา">
-            <img src="image/search.png" alt="Search" class="search-icon">
+            <input type="text" id="searchInput" placeholder="ค้นหาสาขา">
+            <img src="image/search.png" alt="Search" class="search-icon" onclick="searchBranch()">
         </div>
 
         <div class="footer-menu">
-            <button class="active">
+            <button class="active" onclick="window.location.href='index.html';">
                 <img src="image/homeB.png" alt="Home">
                 <span>Home</span>
             </button>
@@ -205,53 +245,17 @@
         </div>
     </div>
 
-    <!-- JavaScript for Distance Calculation -->
+    <!-- JavaScript สำหรับการค้นหาสาขา -->
     <script>
-        function calculateDistance(lat1, lon1, lat2, lon2) {
-            const R = 6371;
-            const dLat = (lat2 - lat1) * Math.PI / 180;
-            const dLon = (lon2 - lon1) * Math.PI / 180;
-            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-                      Math.sin(dLon / 2) * Math.sin(dLon / 2);
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-            return R * c;
-        }
-
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                const userLat = position.coords.latitude;
-                const userLon = position.coords.longitude;
-
-                console.log("User Latitude: " + userLat);
-                console.log("User Longitude: " + userLon);
-
-                const gasStation1 = { lat: 13.962116165223168, lon: 101.57781687871186 };
-                const gasStation2 = { lat: 13.914958493778913, lon: 101.59223060185236 };
-
-                const distanceToStation1 = calculateDistance(userLat, userLon, gasStation1.lat, gasStation1.lon);
-                const distanceToStation2 = calculateDistance(userLat, userLon, gasStation2.lat, gasStation2.lon);
-
-                document.getElementById('distance1').innerHTML = distanceToStation1.toFixed(2) + " กม.";
-                document.getElementById('distance2').innerHTML = distanceToStation2.toFixed(2) + " กม.";
-            }, function(error) {
-                switch(error.code) {
-                    case error.PERMISSION_DENIED:
-                        alert("คุณไม่ได้อนุญาตให้เข้าถึงตำแหน่ง");
-                        break;
-                    case error.POSITION_UNAVAILABLE:
-                        alert("ข้อมูลตำแหน่งไม่พร้อมใช้งาน");
-                        break;
-                    case error.TIMEOUT:
-                        alert("หมดเวลาการรอตำแหน่ง");
-                        break;
-                    default:
-                        alert("เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ");
-                        break;
-                }
-            }, {timeout: 15000}); // เพิ่ม timeout 15 วินาที
-        } else {
-            alert("เบราว์เซอร์ของคุณไม่รองรับการเข้าถึงตำแหน่ง");
+        function searchBranch() {
+            var input = document.getElementById('searchInput').value;
+            if (input === 'ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขาสำนักงานใหญ่') {
+                window.location.href = 'detail.html';
+            } else if (input === 'ห้างหุ้นส่วนจำกัด ภาณุวัฒน์ปิโตรเลียม สาขา1') {
+                window.location.href = 'detail1.html';
+            } else {
+                alert('ไม่พบข้อมูล');
+            }
         }
     </script>
 
